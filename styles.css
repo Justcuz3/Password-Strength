@@ -1,0 +1,145 @@
+/* Universal box-sizing */
+*::before, *::after, * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #111; /* Dark background for contrast */
+    color: #fff; /* Light text color */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  /* Fiery glow effect */
+  @keyframes fireGlow {
+    0% { text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff6347, 0 0 40px #ff6347; }
+    50% { text-shadow: 0 0 10px #ff4500, 0 0 25px #ff4500, 0 0 35px #ff6347, 0 0 45px #ff6347, 0 0 60px #ff6347; }
+    100% { text-shadow: 0 0 5px #ff4500, 0 0 15px #ff4500, 0 0 25px #ff6347, 0 0 35px #ff6347, 0 0 50px #ff6347; }
+  }
+  
+  button {
+    background-color: #ff4500; /* Fiery button color */
+    color: #fff;
+    border: 2px solid #ff6347; /* Fiery border */
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.8); /* Glowing effect */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    animation: fireGlow 1.5s infinite alternate; /* Fiery glow animation */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff6347; /* Brighter color on hover */
+    box-shadow: 0 0 15px rgba(255, 99, 71, 1); /* Intensified glow on hover */
+  }
+  
+  /* Strength meter */
+  .strength-meter {
+    position: relative;
+    height: 2rem;
+    width: 90%;
+    border: 3px solid #ff4500; /* Fiery border */
+    border-radius: 1rem;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #222; /* Dark background for the meter */
+  }
+  
+  @keyframes flameFlicker {
+    0% { background: radial-gradient(circle, rgba(255, 69, 0, 0.8), rgba(255, 99, 71, 0.5) 50%, rgba(255, 69, 0, 0.5)); }
+    50% { background: radial-gradient(circle, rgba(255, 140, 0, 0.8), rgba(255, 69, 0, 0.5) 50%, rgba(255, 140, 0, 0.5)); }
+    100% { background: radial-gradient(circle, rgba(255, 69, 0, 0.8), rgba(255, 99, 71, 0.5) 50%, rgba(255, 69, 0, 0.5)); }
+  }
+  
+  @keyframes fireSparks {
+    0% { opacity: 1; transform: translateY(0); }
+    50% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  .strength-meter::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: calc(1% * var(--strength, 0));
+    background: linear-gradient(90deg, #ff4500, #ff6347, #ff8c00, #ff4500); /* Fiery gradient */
+    background-size: 200% 100%;
+    animation: flameFlicker 1.5s infinite linear, fireSparks 1s infinite; /* Add animations */
+    transition: width 200ms;
+  }
+  
+  /* Fire particles */
+  @keyframes fireParticles {
+    0% { opacity: 0; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-20px); }
+    100% { opacity: 0; transform: translateY(0); }
+  }
+  
+  .strength-meter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 69, 0, 0.4), rgba(255, 140, 0, 0.3), rgba(255, 99, 71, 0.2));
+    border-radius: 50%;
+    animation: fireParticles 1s infinite; /* Particle effect */
+    pointer-events: none;
+  }
+  
+  /* Input field */
+  .password-input {
+    margin-top: 1rem;
+    width: 90%;
+    padding: .25rem .75rem;
+    background-color: #222; /* Dark input background */
+    color: #ff4500; /* Fiery text color */
+    border: 1px solid #ff4500; /* Fiery border */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.6); /* Glowing shadow effect */
+    outline: none;
+    text-align: center;
+    font-size: 1rem;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .password-input:focus {
+    border-color: #ff6347; /* Bright red border on focus */
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.9); /* Intensified glow on focus */
+  }
+
+  @keyframes flameTextColor {
+    0% { color: #ff4500; } /* Fire orange */
+    25% { color: #ff6347; } /* Fire red */
+    50% { color: #ff8c00; } /* Fire orange-yellow */
+    75% { color: #ff4500; } /* Fire orange */
+    100% { color: #ff6347; } /* Fire red */
+  }
+  
+  .reasons > * {
+    margin-top: .5rem;
+    animation: flameTextColor 7s infinite alternate; /* Fiery text color animation */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: #fff; /* Default text color */
+    text-shadow: 0 0 5px rgba(255, 69, 0, 0.7); /* Glowing text effect */
+  }
+
+  /* Footer styling */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #ff4500, #ff6347, #ff8c00); /* Fiery gradient background */
+    color: #fff; /* Light text color */
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 -2px 8px rgba(255, 69, 0, 0.8); /* Glowing shadow effect */
+    font-size: 0.9rem;
+    border-top: 2px solid #ff6347; /* Fiery top border */
+  }
