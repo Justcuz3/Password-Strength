@@ -1,6 +1,8 @@
 # Password Strength Test
 
 This is a simple password strength test. It checks for length, the presence of uppercase and lowercase characters, numbers, and special characters. It also checks for the presence of repeated characters.
+Check out the demo [HERE] (https://justcuz3.github.io/Password-Strength/)
+
 
 ## How to Run
 
